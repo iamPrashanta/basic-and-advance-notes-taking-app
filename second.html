@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance note taking app</title>
+    <script src="test.js" defer></script>
+    <script src="second.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <h2>What would you like to do if you get to spend a whole day</h2>
+    <h4>make a list</h4>
+    <div id="takenotes">
+        <input type="text" placeholder="write your notes here" id="notes_input" autofocus>
+        <button onclick="saveToLocal()" id="save_button">Save</button>
+    </div>
+    <ul id="list">
+        <li id="notes">from DOM
+            <i class="fa fa-close"></i>
+        </li>
+    </ul>
+</body>
+
+</html>
