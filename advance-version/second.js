@@ -33,7 +33,6 @@ function saveToLocal() {
         alert('write something\nInput field is blank');
     } else {
         notes.push(notesInput.value);
-
         let newList = document.createElement('li');
         newList.setAttribute('id', 'notes');
         newList.innerHTML = notesInput.value + ' <i class="fa fa-close"></i>';
@@ -47,5 +46,7 @@ function saveToLocal() {
 
 
 window.onclick = e => {
-    // console.log(e);
+    if (e.target.className == 'fa fa-close') {
+        e.target.parentElement.remove();
+    }
 }
