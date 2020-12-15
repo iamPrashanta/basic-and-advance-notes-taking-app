@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <form action="#">
+            <input type="text" name="item" id="item" placeholder="Add New" />
+        </form>
+        <ul id="list"></ul>
+
+    </div>
+    <script>
+        (function () {
+            var list = document.querySelector('#list'),
+                form = document.querySelector('form'),
+                item = document.querySelector('#item');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var newList = document.createElement('li');
+                newList.innerText = item.value;
+                list.appendChild(newList);
+                store();
+                item.value = "";
+            }, false)
+            window.onclick = e => {
+                console.log(e.target.nodeName);
+                if (e.target.nodeName == 'LI') {
+                    if (e.target.classList.contains('checked')) {
+                        e.target.remove();
+                    } else {
+                        e.target.classList.add('checked');
+                    }
+                }
+                store();
+            }
+            function store() {
+                window.localStorage.myitems = list.innerHTML;
+            }
+            function getValues() {
+                var storedValues = window.localStorage.myitems;
+                if (!storedValues) {
+                    list.innerHTML = '<li>Make a to do list</li>';
+                }
+                else {
+                    list.innerHTML = storedValues;
+                }
+            }
+            getValues();
+        })();
+    </script>
+</body>
+
+</html>
